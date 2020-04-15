@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpGrenade * -2f * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         if(hit.collider.tag == "Bomb")
         {
             Debug.Log("c cool ca marche");
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(jumpGrenade * -2f * gravity);
         }
     }
 }
