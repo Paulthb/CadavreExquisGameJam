@@ -9,6 +9,8 @@ public class Throw : MonoBehaviour
     public float throwForce = 10f;
     public GameObject grenade;
 
+   
+
 
     void Update()
     {
