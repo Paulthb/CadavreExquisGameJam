@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8024512010412016050}
   - component: {fileID: 6780089880509324270}
   - component: {fileID: -6078884473692432581}
+  - component: {fileID: -1356406360921689812}
   m_Layer: 0
   m_Name: GrenadePrefab
   m_TagString: Bomb
@@ -110,3 +111,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-1356406360921689812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8648385891552495325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8c660a065bcda4ca21ad98ecdb25c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redMat: {fileID: 2100000, guid: d3e83a826d2571148b0ea81a6d6e700f, type: 2}
