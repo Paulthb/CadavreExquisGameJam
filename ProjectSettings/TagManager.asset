@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bomb
+  - Platform
+  - PlatformDown
   layers:
   - Default
   - TransparentFX
