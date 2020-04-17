@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Text heightText;
 
+    public Transform cameraTransform = null;
+
     Vector3 velocity;
     bool isGrounded;
 
@@ -72,13 +74,16 @@ public class PlayerMovement : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.collider.tag == "Platform")
+        if (hit.collider.tag == "Platform" || hit.collider.tag == "PlatformZone")
         {
             //Debug.Log("c cool ca marche");
             velocity.y = Mathf.Sqrt(jumpGrenade * -2f * gravity);
 
-            Grenade platformObject = hit.gameObject.GetComponent<Grenade>();
-            platformObject.StartDeathtime();
+            if (hit.collider.tag == "Platform")
+            {
+                Grenade platformObject = hit.gameObject.GetComponent<Grenade>();
+                platformObject.StartDeathtime();
+            }
         }
     }
 
@@ -92,6 +97,17 @@ public class PlayerMovement : MonoBehaviour
     {
         nbCurrentPlatform--;
         updateText();
+    }
+
+    public void Teleport(Vector3 newPos)
+    {
+        controller.enabled = false;
+        controller.transform.position = newPos;
+
+        transform.rotation = Quaternion.identity;
+        cameraTransform.rotation = Quaternion.identity;
+
+        controller.enabled = true;
     }
 
     public void updateText()

@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("respawn");
 
-        player.transform.position = respwanList[idRespawn].position;
+        PlayerMovement.Instance.Teleport(respwanList[idRespawn].position);
 
         Debug.Log("player pos = " + player.transform.position);
         Debug.Log("respawn pos = " + respwanList[idRespawn].position);

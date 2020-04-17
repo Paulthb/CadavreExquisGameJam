@@ -19,6 +19,7 @@ public class Grenade : MonoBehaviour
     public bool isDied = false;
 
     private Rigidbody grenadeRigid;
+    private BoxCollider col;
     private IEnumerator lifTimeCoroutine;
 
     // Start is called before the first frame update
@@ -31,6 +32,7 @@ public class Grenade : MonoBehaviour
             Debug.Log("pas de renderer");
 
         grenadeRigid = GetComponent<Rigidbody>();
+        col = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -77,18 +79,20 @@ public class Grenade : MonoBehaviour
         StartDeathtime();
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 8)
-        {
-            StartLiftime();
-            Debug.Log("platform Touch wall !");
-        }
-    }
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.layer == 8)
+    //    {
+    //        StartLiftime();
+    //        Debug.Log("platform Touch wall !");
+    //    }
+    //}
 
     public IEnumerator OnDestroyPlatform()
     {
         isDied = true;
+        gameObject.tag = "PlatformUsed";
+        col.isTrigger = true;
 
         PlayerMovement.Instance.DecreaseNbPlatform();
 
