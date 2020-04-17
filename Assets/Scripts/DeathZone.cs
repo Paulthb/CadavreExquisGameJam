@@ -10,6 +10,9 @@ public class DeathZone : MonoBehaviour
     public bool futurPlatform = false;
     public bool isPlatform = false;
 
+    public bool deadZonePermanent = false;
+    public bool FinisheZone = false;
+
     private BoxCollider col;
 
     private void Start()
@@ -28,11 +31,16 @@ public class DeathZone : MonoBehaviour
                 rend.material = greenMat;
                 col.isTrigger = false;
             }
-            if (!isPlatform)
+            if (!isPlatform && !deadZonePermanent)
             {
                 GameManager.Instance.RespawnPlayer();
                 isPlatform = true;
             }
+            else if (deadZonePermanent)
+                GameManager.Instance.RespawnPlayer();
+
+            if (FinisheZone)
+                GameManager.Instance.Finish();
         }
     }
 }

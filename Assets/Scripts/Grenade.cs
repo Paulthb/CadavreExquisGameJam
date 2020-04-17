@@ -10,6 +10,8 @@ public class Grenade : MonoBehaviour
     public Material blackMat;
     public Material GreenMat;
 
+    public GameObject greenParticle;
+
     public float deathTime = 2;
     public float lifeTime = 3;
     private float matTime = 0;
@@ -61,6 +63,7 @@ public class Grenade : MonoBehaviour
     public IEnumerator LifeTime()
     {
         isBlocked = true;
+        greenParticle.SetActive(true);
 
         gameObject.tag = "Platform";
         grenadeRigid.velocity = Vector3.zero;
@@ -93,6 +96,8 @@ public class Grenade : MonoBehaviour
         isDied = true;
         gameObject.tag = "PlatformUsed";
         col.isTrigger = true;
+
+        greenParticle.SetActive(false);
 
         PlayerMovement.Instance.DecreaseNbPlatform();
 
