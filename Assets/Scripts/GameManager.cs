@@ -36,4 +36,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("player pos = " + player.transform.position);
         Debug.Log("respawn pos = " + respwanList[idRespawn].position);
     }
+
+    public void CheckPointPassed()
+    {
+        idRespawn++;
+    }
 }

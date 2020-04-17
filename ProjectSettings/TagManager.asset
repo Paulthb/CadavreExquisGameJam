@@ -7,6 +7,9 @@ TagManager:
   - Bomb
   - Platform
   - PlatformDown
+  - PlatformUsed
+  - PlatformZone
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
